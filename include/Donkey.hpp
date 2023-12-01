@@ -27,7 +27,7 @@ public:
 
     void draw(sf::RenderWindow &window)
     {
-        window.draw(this->shape);
+        // window.draw(this->shape);
         window.draw(this->sprite);
     }
 
@@ -36,7 +36,7 @@ public:
         if (clock.getElapsedTime().asSeconds() >= frameTime)
         {
             currentFrame = (currentFrame + 1) % numFrames;
-            sprite.setTextureRect(sf::IntRect((currentFrame * 40), 0, 37, 28));
+            sprite.setTextureRect(sf::IntRect((currentFrame * 36), 0, 37, 28));
             clock.restart();
         }
     }
