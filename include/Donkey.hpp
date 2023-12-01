@@ -5,13 +5,13 @@ class Donkey
 public:
     Donkey(sf::Vector2f position, sf::Color color)
     {
-        shape.setSize(sf::Vector2f(150, 50));
+        shape.setSize(sf::Vector2f(50, 50));
         shape.setPosition(position); // Posición inicial cuadro
         shape.setFillColor(color);
 
         // Cargar la imagen desde un archivo
         
-        if (!texture.loadFromFile("images/dka.png"))
+        if (!texture.loadFromFile("assets/images/donkey.png"))
         {
         
         }
@@ -36,7 +36,7 @@ public:
         if (clock.getElapsedTime().asSeconds() >= frameTime)
         {
             currentFrame = (currentFrame + 1) % numFrames;
-            sprite.setTextureRect(sf::IntRect((currentFrame * 64)+17, 133, 64, 36));
+            sprite.setTextureRect(sf::IntRect((currentFrame * 40), 0, 37, 28));
             clock.restart();
         }
     }
@@ -49,8 +49,8 @@ private:
     float frameTime = 0.1f; // Tiempo entre cada frame en segundos
     int currentFrame = 0;
     int numFrames = 4; // Número total de frames en la animación
-    int frameWidth = 32;
-    int frameHeight = 32;
+    int frameWidth = 37;
+    int frameHeight = 28;
 };
 
 double velocidad = 0.1;
