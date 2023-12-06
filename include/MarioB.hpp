@@ -5,13 +5,13 @@ class MarioB
 public:
     MarioB(sf::Vector2f position, sf::Color color)
     {
-        shape.setSize(sf::Vector2f(50, 50));
+        shape.setSize(sf::Vector2f(0, 0));
         shape.setPosition(position); // Posición inicial cuadro
         shape.setFillColor(color);
 
         // Cargar la imagen desde un archivo
         
-        if (!texture.loadFromFile("assets/images/dka.png"))
+        if (!texture.loadFromFile("assets/images/mario3.png"))
         {
         
         }
@@ -36,7 +36,7 @@ public:
         if (clock.getElapsedTime().asSeconds() >= frameTime)
         {
             currentFrame = (currentFrame + 1) % numFrames;
-            sprite.setTextureRect(sf::IntRect((currentFrame * 36), 0, 37, 28));
+            sprite.setTextureRect(sf::IntRect((currentFrame * 6), 0, 35, 32));
             clock.restart();
         }
     }
@@ -46,11 +46,11 @@ private:
     sf::Sprite sprite;
     sf::Texture texture;
     sf::Clock clock;
-    float frameTime = 0.1f; // Tiempo entre cada frame en segundos
+    float frameTime = 0.5f; // Tiempo entre cada frame en segundos
     int currentFrame = 0;
-    int numFrames = 4; // Número total de frames en la animación
-    int frameWidth = 37;
-    int frameHeight = 28;
+    int numFrames = 3; // Número total de frames en la animación
+    int frameWidth = 35;
+    int frameHeight = 32;
 };
 
 double velocidad = 0.1;

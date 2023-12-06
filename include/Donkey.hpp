@@ -36,7 +36,7 @@ public:
         if (clock.getElapsedTime().asSeconds() >= frameTime)
         {
             currentFrame = (currentFrame + 1) % numFrames;
-            sprite.setTextureRect(sf::IntRect((currentFrame * 36), 0, 37, 28));
+            sprite.setTextureRect(sf::IntRect((currentFrame * 25), 40, 43, 42));
             clock.restart();
         }
     }
@@ -46,11 +46,10 @@ private:
     sf::Sprite sprite;
     sf::Texture texture;
     sf::Clock clock;
-    float frameTime = 0.1f; // Tiempo entre cada frame en segundos
+    float frameTime = 0.5f; // Tiempo entre cada frame en segundos
     int currentFrame = 0;
-    int numFrames = 4; // Número total de frames en la animación
-    int frameWidth = 37;
-    int frameHeight = 28;
+    int numFrames = 2; // Número total de frames en la animación
+    int frameWidth = 43;
+    int frameHeight = 42;
 };
 
-double velocidad = 0.1;
