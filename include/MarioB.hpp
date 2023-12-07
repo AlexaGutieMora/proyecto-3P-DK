@@ -52,5 +52,4 @@ private:
     int frameWidth = 35;
     int frameHeight = 32;
 };
-
-double velocidad = 0.1;
+double velocidad = 0.1

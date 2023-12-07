@@ -48,7 +48,7 @@ private:
     sf::Clock clock;
     float frameTime = 0.5f; // Tiempo entre cada frame en segundos
     int currentFrame = 0;
-    int numFrames = 2; // Número total de frames en la animación
+    int numFrames = 5; // Número total de frames en la animación
     int frameWidth = 43;
     int frameHeight = 42;
 };

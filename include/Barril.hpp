@@ -1,5 +1,4 @@
 #include <SFML/Graphics.hpp>
-
 class Barril
 {
 public:
@@ -53,4 +52,3 @@ private:
     int frameHeight = 12;
 };
 
-double velocidad = 0.1;
