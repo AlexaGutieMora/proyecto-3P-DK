@@ -12,18 +12,18 @@
 
 
 ## CONTROLES MARIO:
-W = SUBIR
-S = BAJAR
-A = MOVER IZQUIERDA
-D = MOVER DERECHA
+>W = SUBIR
+>S = BAJAR
+>A = MOVER IZQUIERDA
+>D = MOVER DERECHA
 
 
 
 
 ## CONTROLES DONKEY KONG
-FLECHA IZQUIERDA Y FLECHA DERECHA (solo se mueve en horizontal, en las coordenadas de la antepenúltima viga)
+>FLECHA IZQUIERDA Y FLECHA DERECHA (solo se mueve en horizontal, en las coordenadas de la antepenúltima viga)
 
-G = DISPARA BARRIL (solo se mueve en vertical)
+>G = DISPARA BARRIL (solo se mueve en vertical)
 
 ## PARA COMPILAR
 En la terminal, escribir "make runmain"
