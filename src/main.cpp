@@ -8,9 +8,9 @@ double velocidad = 0.1;
 int main()
 {
     int posicion;
-    DonkeyKong donkey(sf::Vector2f(0, 103), sf::Color::Black);
+    DonkeyKong donkey(sf::Vector2f(50, 103), sf::Color::Black);
     MarioB mario(sf::Vector2f(3, 445), sf::Color::Red);
-    Mapa map(sf::Vector2f(0, 103), sf::Color::Red);
+    Mapa map(sf::Vector2f(50, 103), sf::Color::Red);
     sf::Texture texture;
     if (!texture.loadFromFile("./assets/images/mapad.png"))
     {
