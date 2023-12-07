@@ -39,16 +39,17 @@ public:
             clock.restart();
         }
     }
-
-private:
+    
+    private:
     sf::RectangleShape shape;
     sf::Sprite sprite;
     sf::Texture texture;
     sf::Clock clock;
-    float frameTime = 0.2f; // Tiempo entre cada frame en segundos
+    float frameTime = 0.5f; // Tiempo entre cada frame en segundos
     int currentFrame = 0;
-    int numFrames = 2; // Número total de frames en la animación
-    int frameWidth = 8;
-    int frameHeight = 12;
+    int numFrames = 1; // Número total de frames en la animación
+    int frameWidth = 5;
+    int frameHeight = 5;
 };
+
 

@@ -6,7 +6,7 @@
 int main()
 {
     sf::Texture texture;
-    if (!texture.loadFromFile("./assets/images/mapa.png"))
+    if (!texture.loadFromFile("./assets/images/mapad.png"))
     {
         // Manejar el error si no se puede cargar la imagen
         return -1;
