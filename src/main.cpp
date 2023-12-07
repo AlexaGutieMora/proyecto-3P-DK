@@ -3,17 +3,18 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 
+double velocidad = 0.1;
 int main()
 {
-    DonkeyKong pika(sf::Vector2f(200, 300), sf::Color::Red);
-    MarioB pikachu(sf::Vector2f(600, 300), sf::Color::Red);
+    DonkeyKong donkey(sf::Vector2f(0, 103), sf::Color::Black);
+    MarioB mario(sf::Vector2f(3, 445), sf::Color::Red);
     sf::Texture texture;
     if (!texture.loadFromFile("./assets/images/mapad.png"))
     {
         // Manejar el error si no se puede cargar la imagen
         return -1;
     }
-     // Crear un sprite y asignarle la textura
+    // Crear un sprite y asignarle la textura
     sf::Sprite sprite(texture);
 
     sf::Music music;
@@ -26,9 +27,8 @@ int main()
     // Reproducir la música
     music.play();
 
-    sf::RenderWindow window(sf::VideoMode(800, 600), "DK");
+    sf::RenderWindow window(sf::VideoMode(500, 512), "DK");
 
-    
     while (window.isOpen())
     {
         sf::Event event;
@@ -42,48 +42,39 @@ int main()
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
-            pika.move(velocidad * -1, 0);
+            donkey.move(velocidad * -1, 0);
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         {
-            pika.move(velocidad, 0);
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-        {
-            pika.move(0, velocidad * -1);
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-        {
-            pika.move(0, velocidad);
+            donkey.move(velocidad, 0);
         }
 
-
-         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
         {
-            pikachu.move(velocidad * -1, 0);
+            mario.move(velocidad * -1, 0);
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
         {
-            pikachu.move(velocidad, 0);
+            mario.move(velocidad, 0);
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
         {
-            pikachu.move(0, velocidad * -1);
+            mario.move(0, velocidad * -1);
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
         {
-            pikachu.move(0, velocidad);
+            mario.move(0, velocidad);
         }
 
         // Actualizar animacion pikachu
-        pika.update();
-        pikachu.update();
+        donkey.update();
+        mario.update();
 
         window.clear();
         window.draw(sprite);
-        pika.draw(window);
-        pikachu.draw(window);
-      //  window.draw(text2);
+        donkey.draw(window);
+        mario.draw(window);
+        //  window.draw(text2);
         window.display();
 
         if (music.getStatus() != sf::Music::Playing)

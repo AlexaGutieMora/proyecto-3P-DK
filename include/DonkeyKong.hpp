@@ -7,7 +7,7 @@ public:
 
     DonkeyKong(sf::Vector2f position, sf::Color color)
     {
-        shape.setSize(sf::Vector2f(50, 50));
+        shape.setSize(sf::Vector2f(25, 25));
         shape.setPosition(position); // Posición inicial cuadro
         shape.setFillColor(color);
 
@@ -39,7 +39,7 @@ public:
         if (clock.getElapsedTime().asSeconds() >= frameTime)
         {
             currentFrame = (currentFrame + 1) % numFrames;
-            sprite.setTextureRect(sf::IntRect((currentFrame * 25) + 1, 40, 43, 42));
+            sprite.setTextureRect(sf::IntRect((currentFrame * 42) + 1, 5, 25, 25));
             clock.restart();
         }
     }
@@ -52,7 +52,6 @@ private:
     float frameTime = 0.1f; // Tiempo entre cada frame en segundos
     int currentFrame = 0;
     int numFrames = 4; // Número total de frames en la animación
-    int frameWidth = 43;
-    int frameHeight = 42;
+    int frameWidth = 25;
+    int frameHeight = 25;
 };
-double velocidad = 0.1;
