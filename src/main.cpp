@@ -1,10 +1,12 @@
-#include<Donkey.hpp>
-#include<MarioB.hpp>
-#include<Barril.hpp>
-#include <SFML/Audio.hpp>
+#include <DonkeyKong.hpp>
+#include <MarioB.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+
 int main()
 {
+    DonkeyKong pika(sf::Vector2f(200, 300), sf::Color::Red);
+    MarioB pikachu(sf::Vector2f(600, 300), sf::Color::Red);
     sf::Texture texture;
     if (!texture.loadFromFile("./assets/images/mapad.png"))
     {
@@ -15,7 +17,7 @@ int main()
     sf::Sprite sprite(texture);
 
     sf::Music music;
-    if (!music.openFromFile("./assets/music/MainTheme.ogg"))
+    if (!music.openFromFile("./assets/music/01. Main Theme.ogg"))
     {
         // Error al cargar el archivo de música
         return -1;
@@ -34,16 +36,13 @@ int main()
     // Crear un objeto de texto LOTR
     sf::Text text2;
     text2.setFont(font2);
-    text2.setString("DONKEY KONG");
-    text2.setCharacterSize(90);
-    text2.setPosition(110, 100);
+    text2.setString("STREET FIGHTER!");
+    text2.setCharacterSize(10);
+    text2.setPosition(10, 10);
 
-    sf::RenderWindow window(sf::VideoMode(800, 600), "DK ARCADE");
+    sf::RenderWindow window(sf::VideoMode(800, 600), "Street Fighter");
 
-    Donkey donk(sf::Vector2f(100, 300), sf::Color::Red);
-    MarioB mario(sf::Vector2f(700, 300), sf::Color::Red);
-   // Barril barr(sf::Vector2f(600, 300), sf::Color::Red);
-
+    
     while (window.isOpen())
     {
         sf::Event event;
@@ -57,43 +56,51 @@ int main()
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
-           mario.move(velocidad * -1, 0);
+            pika.move(velocidad * -1, 0);
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         {
-            mario.move(velocidad, 0);
+            pika.move(velocidad, 0);
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
-            mario.move(0, velocidad * -1);
+            pika.move(0, velocidad * -1);
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         {
-            mario.move(0, velocidad);
+            pika.move(0, velocidad);
         }
+
+
          if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
         {
-            donk.move(velocidad * -1, 0);
+            pikachu.move(velocidad * -1, 0);
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
         {
-            donk.move(velocidad, 0);
+            pikachu.move(velocidad, 0);
         }
-         // if (sf::Keyboard::isKeyPressed(sf::Keyboard::F))
-       // {
-         //   barr.move(velocidad, 0);
-       // }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+        {
+            pikachu.move(0, velocidad * -1);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+        {
+            pikachu.move(0, velocidad);
+        }
 
-        donk.update();
-        mario.update();
-      //  barr.update();
+
+        
+
+
+        // Actualizar animacion pikachu
+        pika.update();
+        pikachu.update();
 
         window.clear();
         window.draw(sprite);
-
-        donk.draw(window);
-        mario.draw(window);
-
+        pika.draw(window);
+        pikachu.draw(window);
         window.draw(text2);
         window.display();
 

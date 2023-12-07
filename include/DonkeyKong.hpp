@@ -1,19 +1,23 @@
 #include <SFML/Graphics.hpp>
-class Barril
+#include <SFML/Audio.hpp>
+
+class DonkeyKong
 {
 public:
-    Barril(sf::Vector2f position, sf::Color color)
+
+    DonkeyKong(sf::Vector2f position, sf::Color color)
     {
-        shape.setSize(sf::Vector2f(0, 0));
+        shape.setSize(sf::Vector2f(50, 50));
         shape.setPosition(position); // Posición inicial cuadro
         shape.setFillColor(color);
 
         // Cargar la imagen desde un archivo
         
-        if (!texture.loadFromFile("assets/images/b.png"))
+        if (!texture.loadFromFile("./assets/images/donkey.png"))
         {
         
         }
+        
         this->sprite = sf::Sprite(texture);
         this->sprite.setPosition(position); // Posición inicial sprite
     }
@@ -26,7 +30,7 @@ public:
 
     void draw(sf::RenderWindow &window)
     {
-        // window.draw(this->shape);
+        window.draw(this->shape);
         window.draw(this->sprite);
     }
 
@@ -35,21 +39,20 @@ public:
         if (clock.getElapsedTime().asSeconds() >= frameTime)
         {
             currentFrame = (currentFrame + 1) % numFrames;
-            sprite.setTextureRect(sf::IntRect(currentFrame, 0 , 8, 12));
+            sprite.setTextureRect(sf::IntRect((currentFrame * 25) + 1, 40, 43, 42));
             clock.restart();
         }
     }
-    
-    private:
+
+private:
     sf::RectangleShape shape;
     sf::Sprite sprite;
     sf::Texture texture;
     sf::Clock clock;
-    float frameTime = 0.5f; // Tiempo entre cada frame en segundos
+    float frameTime = 0.1f; // Tiempo entre cada frame en segundos
     int currentFrame = 0;
-    int numFrames = 1; // Número total de frames en la animación
-    int frameWidth = 5;
-    int frameHeight = 5;
+    int numFrames = 4; // Número total de frames en la animación
+    int frameWidth = 43;
+    int frameHeight = 42;
 };
-
-
+double velocidad = 0.1;
